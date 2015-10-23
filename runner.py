@@ -17,11 +17,12 @@ parser.add_argument('source_name', help='name of the sensor/LittleSleeper instan
 
 def run(url, frequency, source_name):
     while True:
+        sleep = lambda: time.sleep(frequency)
         try:
             data = requests.get(url).json()
             current_value = data['audio_plot'][-1]
         except:
-            time.sleep(frequency)
+            sleep()
             continue
         event = NoiseEvent()
         event.intensity = current_value
@@ -32,7 +33,7 @@ def run(url, frequency, source_name):
             sys.stdout.write(unicode(event))
             sys.stdout.write('\n')
             sys.stdout.flush()
-        time.sleep(frequency)
+        sleep()
 
 if __name__ == '__main__':
     args = parser.parse_args()
