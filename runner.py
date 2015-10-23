@@ -16,8 +16,8 @@ parser.add_argument('frequency', help='frequency in seconds (supports decimals) 
 parser.add_argument('source_name', help='name of the sensor/LittleSleeper instance from which the noise level is recorded.', type=str)
 
 def run(url, frequency, source_name):
+    sleep = lambda: time.sleep(frequency)
     while True:
-        sleep = lambda: time.sleep(frequency)
         try:
             data = requests.get(url).json()
             current_value = data['audio_plot'][-1]
