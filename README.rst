@@ -26,3 +26,7 @@ Usage
 
 Execute the `runner.py` script without arguments to get the list of available parameters.
 
+Set the `DEBUG` environment variable for verbose output, for example:
+
+    DEBUG=1 ./runner X Y Z
+
