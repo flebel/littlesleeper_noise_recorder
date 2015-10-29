@@ -5,8 +5,9 @@ import requests
 import sys
 import time
 
-from recorder import DEBUG, session
+from recorder import  session
 from recorder.models import NoiseEvent, NoiseSource
+from recorder.settings import DEBUG
 from recorder.utils import get_or_create
 
 
